@@ -9,6 +9,8 @@ describe("committed migrations", () => {
     sql.matchAll(/CREATE TABLE "(\w+)"\s*\(([\s\S]*?)\n\);/g),
     ([, name, columns]) => [name, columns],
   ));
+  // 0001 drops the starter's notes table; what remains is the live schema.
+  for (const [, name] of sql.matchAll(/DROP TABLE "(\w+)"/g)) tables.delete(name);
 
   it("creates users with the gateway ID and profile fields", () => {
     expect(tables.get("users")).toMatch(/"id" text PRIMARY KEY NOT NULL/);
