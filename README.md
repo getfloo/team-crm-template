@@ -2,6 +2,8 @@
 
 A lightweight CRM for small sales, partnerships and account teams: track companies, their contacts, deals moving through your pipeline, and every call, email and note, all behind your team's sign-in.
 
+![Team CRM running on floo, with sample data](docs/screenshot.png)
+
 ## What you get
 
 - **Sign-in for your team, with roles.** floo hosts the login. Any member can add and edit records; only admins can delete.
