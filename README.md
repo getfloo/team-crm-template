@@ -68,13 +68,13 @@ The seed only fills an empty database and spreads the sample deals across everyo
 | `/companies` | Search companies by name, domain or contact, and add a company |
 | `/companies/[id]` | A company's deals, contacts and activity timeline, with forms to add and edit each |
 | `/api-docs` | The API reference, for signed-in people |
-| `/api/*` | The JSON API, for callers holding an app API key |
+| `/api/*` | The JSON API, for members' floo keys and app API keys |
 
 **Roles.** floo sends each signed-in person's role as `admin` or `member`. Members create and edit everything. Delete buttons appear only for admins, and every delete action checks the role on the server.
 
 **Data model.** `companies` have many `contacts` and `deals`. A deal has a title, a value in whole currency units, a stage, and an owner (a teammate, or unassigned). `activities` are notes, calls and emails on a company, optionally about one of its deals; each records its author from the signed-in identity or the API key. Deleting a company deletes its contacts, deals and activity. `users` caches everyone who has signed in, so deals can be assigned to them.
 
-**API.** Every endpoint under `/api` needs an app API key with the `api` scope:
+**API.** Call `/api` as yourself with your own floo key, or give a program an app API key with the `api` scope:
 
 ```sh
 floo apps consumers create crm-agent
