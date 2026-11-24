@@ -28,11 +28,12 @@ Or do it yourself: click **Use this template** on GitHub to create your own copy
 ```sh
 curl -fsSL https://getfloo.com/install.sh | bash
 floo auth login
-floo apps github connect <you>/<your-repo>
-floo deploys watch
+git clone https://github.com/<you>/<your-repo>.git
+cd <your-repo>
+floo deploy
 ```
 
-`connect` creates the app and deploys it. If floo has no access to the repository yet, it prints a link to install the floo GitHub App; finish that and run `connect` again. The app is named `team-crm` in `floo.app.toml`; change `name` there first if you want another name.
+`floo deploy` connects your repository, creates the app, deploys it and prints the live URL. If floo has no access to the repository yet, it stops with a link to install the floo GitHub App; finish that and run `floo deploy` again. The app is named `team-crm` in `floo.app.toml`; change `name` there first if you want another name.
 
 ## Customize
 
